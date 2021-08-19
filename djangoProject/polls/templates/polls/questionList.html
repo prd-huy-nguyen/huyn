@@ -1,0 +1,13 @@
+{% extends 'polls/base.html' %}
+{% block viewList %}
+    {% if listQuestion %}
+        {% for item in listQuestion %}
+        <p>cau hoi: {{ item.question_text }}</p>
+        <p>gio: {{ item.time_pub }}</p>
+        {% endfor %}
+    {% else %}
+     <h3 style="color: blue"> khong co du lieu duoi dataBase </h3>
+    {% endif %}
+{#    {{ listQuestion.question_text }}#}
+{#        {{ listQuestion.time_pub }}#}
+{% endblock %}

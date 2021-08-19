@@ -1,0 +1,25 @@
+{% extends 'polls/base.html' %}
+{% block employee %}
+    <h1 style="margin: 30px 0">
+                <div>
+    <a href="/polls/createEmployee" class="btn btn-outline-success my-2 my-sm-0" style="float: right;margin-right: 1%" >Thêm mới</a>
+    </div>
+        <center>Danh Sách Nhân Viên</center>
+    </h1>
+    <p style="color: red;"> {{ check}}</p>
+    {% for items in listEmployee %}
+        <div style="float: left">
+            <div class="card" style="width: 18rem;margin: 5px; height: 40rem;float: left">
+                <img class="card-img-top" style="height: 300px;" src="{{ items.image }}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Nhân viên: {{ items.id }}</h5>
+                    <p class="card-text">Tên {{ items.name }}</p>
+                    <p class="card-text">Tuổi {{ items.age }}</p>
+                    <p class="card-text">Địa chỉ: {{ items.address }}</p>
+                    <a href="#" class="btn btn-primary">Chi tiếc</a>
+                </div>
+            </div>
+        </div>
+
+    {% endfor %}
+{% endblock %}
