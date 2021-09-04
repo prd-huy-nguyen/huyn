@@ -184,3 +184,19 @@ esc → E, xuống dòng linux - cuối dòng thêm nomodeset
 tải 3 thư mục về 1 folder trong máy
 https://drive.google.com/drive/u/0/folders/1awPc1SN1IoAvHozylTt-ekEMO2mIC7rI
 sudo dpkg -i *.deb
+
+ sudo kill -9 `sudo lsof -t -i:8000`
+
+admin@recruiting.ai
+
+
+GIT
+
+chuyen remote
+ git remote set-url origin git@github.com:ParadoxAi/olivia-core.git
+
+--no-verify chỉ khi nào file có 1 mình mình thay đổi
+git commit -m "test(OL-40236): test get candidate attributes by lead" –no-verify
+local 
+git reset        xóa commit ra khỏi local
+
