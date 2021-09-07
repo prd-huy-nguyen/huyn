@@ -3,19 +3,19 @@
 This answer is via Linux command-line: - edit /etc/default/keyboard - make sure it contains this line
 
 XKBOPTIONS="numpad:microsoft"
-
+----------------------------------------------------
 SIGNIFICANT APPLICATION
 1. Install Google Chrome
 - sudo apt-get install libxss1 libappindicator1 libindicator7
 - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 - sudo dpkg -i google-chrome*.deb
 - sudo apt-get install libnss3
-
+----------------------------------------------------
 2. Install notepadqq
 - sudo add-apt-repository ppa:notepadqq-team/notepadqq
 - sudo apt-get update
 - sudo apt-get install notepadqq
-
+----------------------------------------------------
 3. Install gimp
 - http://ubuntuhandbook.org/index.php/2015/11/how-to-install-gimp-2-8-16-in-ubuntu-16-04-15-10-14-04/
 - sudo add-apt-repository ppa:otto-kesselgulasch/gimp
@@ -25,22 +25,22 @@ SIGNIFICANT APPLICATION
 ----- Uninstall -----
 - sudo apt-get install ppa-purge
 - sudo ppa-purge ppa:otto-kesselgulasch/gimp
-
+----------------------------------------------------
 4. Install python:
 - sudo apt-get install python3.5
 - alias python=python3
-
+----------------------------------------------------
 5. Install pip:
 - sudo apt install python3-pip
 - pip3 install -U pip
 
 - sudo apt-get --purge autoremove python3-pip
 (There is something wrong when installing pip3, ignore this and work on pip)
-
+----------------------------------------------------
 6. Install virtualenv
 - pip3 install virtualenv
 - virtualenv -p /usr/bin/python3.5 [project_name]
-
+----------------------------------------------------
 7. Install pycharm
 - sudo add-apt-repository ppa:mystic-mirage/pycharm
 - sudo apt update
@@ -54,23 +54,23 @@ SIGNIFICANT APPLICATION
 - http://172.245.22.235:1017
 - http://idea.imsxm.com/
 - http://mcpmcc.com:1017
-
+----------------------------------------------------
 8. Install mysql
 - sudo apt-get install mysql-server
-
+----------------------------------------------------
 9. Install redis
 - sudo apt-get install redis-server
-
+----------------------------------------------------
 10. Install nginx
 - sudo apt-get install nginx
-
+----------------------------------------------------
 11. Install arangodb
 - sudo wget https://www.arangodb.com/repositories/arangodb3/xUbuntu_16.04/Release.key; sudo apt-key add Release.key; sudo apt install software-properties-common; sudo apt-add-repository 'deb https://www.arangodb.com/repositories/arangodb3/xUbuntu_16.04/ /'; sudo apt-get update; sudo apt-get install arangodb3;
 - sudo wget https://www.arangodb.com/repositories/arangodb3/xUbuntu_14.04/Release.key; sudo apt-key add Release.key; sudo apt-add-repository 'deb https://www.arangodb.com/repositories/arangodb3/xUbuntu_14.04/ /'; sudo apt-get update; sudo apt-get install arangodb3;
 - arangosh --server.password abc@123 --javascript.execute arangodb_config.js rvportal_db rvportal_graph reactivuser abc@123
 arangodump --server.endpoint tcp://127.0.0.1:8529 --server.username root --server.password abc@123 --server.database rvportal_db --output-directory "dump"  
 arangorestore --server.endpoint tcp://127.0.0.1:8529 --server.username root --server.password abc@123 --server.database rvportal_db  --create-database true --input-directory "dump"
-
+----------------------------------------------------
 12. Install git
 - sudo apt-get install git
 ----- Install key -----
@@ -83,7 +83,7 @@ arangorestore --server.endpoint tcp://127.0.0.1:8529 --server.username root --se
 - https://coderwall.com/p/fczfzq/git-checkout-remote-branch
 - git grep '<<<<<<< HEAD'
 - git branch -d branch_name
-
+----------------------------------------------------
 13. Install mysql management tool:
 - mysql workbrech
 	+ sudo apt-get install mysql-workbench
@@ -94,7 +94,7 @@ arangorestore --server.endpoint tcp://127.0.0.1:8529 --server.username root --se
 	+ apt-get install build-essential libffi-dev python3.6-dev libmysqlclient-dev
 	+ apt-get install -y libmemcached-dev zlib1g-dev build-essential
 	+ apt-get install libxml2-dev libxmlsec1-dev libxmlsec1-openssl
-
+----------------------------------------------------
 14. Install redis management tool:
 - http://docs.redisdesktop.com/en/latest/install/#build-from-source
 - git clone --recursive https://github.com/uglide/RedisDesktopManager.git -b 0.8.0 rdm && cd ./rdm
@@ -104,22 +104,31 @@ arangorestore --server.endpoint tcp://127.0.0.1:8529 --server.username root --se
 - cd /usr/share/redis-desktop-manager/bin
 - sudo mv qt.conf qt.backuppy
 
+sudo apt-get install build-essential libssl-dev
+wget http://download.redis.io/releases/redis-6.2.5.tar.gz
+tar xvzf redis-6.2.5.tar.gz
+cd redis-6.2.5
+make
+sudo make install
+
+
+----------------------------------------------------
 15. Install nodejs
 - wget -qO- https://deb.nodesource.com/setup_8.x | sudo bash -
 - sudo apt-get install nodejs
 - sudo apt-get install nodejs-legacy
 (npm is attached in node)
-
+----------------------------------------------------
 16. Install npm
 - sudo npm install npm@latest -g
-- sudo apt-get install npm
-	
+- sudo apt-get install np
+----------------------------------------------------
 17. Install memcache
 - sudo apt-get install memcached
 - https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-memcached-on-ubuntu-16-04
 - check alive: sudo netstat -nap | grep memcached
 - flush content: echo 'flush_all' | nc localhost 11211 
-
+----------------------------------------------------
 18. Install stunnel:
 	1. Document:
 		https://isotoma.com/blog/2012/07/17/running-a-django-dev-instance-over-https/
@@ -139,38 +148,49 @@ arangorestore --server.endpoint tcp://127.0.0.1:8529 --server.username root --se
 	accept=8999
 	connect=8009
 	TIMEOUTclose=1
-	
+----------------------------------------------------	
 19. Install Olivia-UI
 - python manage.py compilejsi18n
 
 
-
+----------------------------------------------------
 cap quyen sudo
 pkexec chmod 0440 /etc/sudoers
 sudo -s
+--------------
+chown -R root:root /usr/bin/sudo
+chmod -R a=rx,u+ws /usr/bin/sudo
+chown -R root:root /usr/lib/sudo/sudoer.so
+chmod -R a=rx,u+ws /usr/lib/sudo/sudoer.so
+----------------------------------------------------
 
+
+
+cap quyen folder
+sudo chown huy:huy -R tenfolder
+----------------------------------------------------
 
 cp /home/huy/Desktop/project/olivia-core/src/aicore/settings/sample.config.env /home/huy/Desktop/project/olivia-core/config.env
 
-
+----------------------------------------------------
 mysql loi~ khi cai dat requirements
 apt-get install python3-dev default-libmysqlclient-dev build-essential
-
+----------------------------------------------------
 SQL root
 sudo mysql -u root
 GRANT ALL PRIVILEGES ON *.* TO 'YOUR_SYSTEM_USER'@'localhost';
 FLUSH PRIVILEGES;
-
+----------------------------------------------------
 phan quyen docker
 chmod 777 /var/run/docker.sock
-
+----------------------------------------------------
 
  cp /home/huy/Desktop/project/olivia/src/ai/settings/sample.config.env /home/huy/Desktop/project/olivia/config.env
-
+----------------------------------------------------
 Test
 
 pytest --cov=olivia-core tests/
-
+----------------------------------------------------
 cai dat ubuntu:
 - thiet lap usb boot
 - vao bios → thiet lap option → usb boot
@@ -189,14 +209,22 @@ sudo dpkg -i *.deb
 
 admin@recruiting.ai
 
-
+----------------------------------------------------
 GIT
 
 chuyen remote
  git remote set-url origin git@github.com:ParadoxAi/olivia-core.git
 
 --no-verify chỉ khi nào file có 1 mình mình thay đổi
-git commit -m "test(OL-40236): test get candidate attributes by lead" –no-verify
+git commit -m "test(OL-40605): get cms care answer categories
+" –no-verify
 local 
 git reset        xóa commit ra khỏi local
+
+git commit –amend		update commit cuối
+git push -f origin <branch>  
+
+
+git checkout -b dev/api_testing/OL-40605
+
 
